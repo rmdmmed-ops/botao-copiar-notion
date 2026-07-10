@@ -1,0 +1,202 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7f4;
+  --panel: #ffffff;
+  --ink: #20231f;
+  --muted: #667063;
+  --line: #d9ded5;
+  --accent: #0f766e;
+  --accent-strong: #115e59;
+  --accent-soft: #e0f2ef;
+  --shadow: 0 18px 50px rgba(32, 35, 31, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.09), transparent 34%),
+    linear-gradient(315deg, rgba(111, 99, 75, 0.1), transparent 42%),
+    var(--bg);
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.app-shell {
+  width: min(100%, 920px);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 32px 18px;
+  display: grid;
+  place-items: center;
+}
+
+.copy-panel {
+  width: min(100%, 760px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.panel-header {
+  min-height: 82px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.copy-button {
+  flex: 0 0 auto;
+  min-width: 112px;
+  height: 42px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.copy-button:hover {
+  background: var(--accent-strong);
+  box-shadow: 0 8px 22px rgba(15, 118, 110, 0.2);
+  transform: translateY(-1px);
+}
+
+.copy-button:focus-visible {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+.clipboard-icon {
+  position: relative;
+  width: 15px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+}
+
+.clipboard-icon::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: -6px;
+  width: 7px;
+  height: 6px;
+  border: 2px solid currentColor;
+  border-bottom: 0;
+  border-radius: 3px 3px 0 0;
+  background: var(--accent);
+}
+
+.copy-button:hover .clipboard-icon::before {
+  background: var(--accent-strong);
+}
+
+.copy-button.is-copied {
+  background: #166534;
+}
+
+.copy-button.is-copied .clipboard-icon::before {
+  background: #166534;
+}
+
+textarea {
+  width: 100%;
+  min-height: 540px;
+  display: block;
+  padding: 22px 20px 28px;
+  border: 0;
+  resize: vertical;
+  color: var(--ink);
+  background: #fffefb;
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace;
+  font-size: 0.96rem;
+  line-height: 1.58;
+}
+
+textarea:focus {
+  outline: 3px solid var(--accent-soft);
+  outline-offset: -3px;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 18px);
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #20231f;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    padding: 14px;
+    place-items: start center;
+  }
+
+  .panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .copy-button {
+    width: 100%;
+  }
+
+  textarea {
+    min-height: 620px;
+    font-size: 0.9rem;
+    padding: 18px 14px 24px;
+  }
+}

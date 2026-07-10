@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Copiar Evolucao do PS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="copy-panel" aria-labelledby="panel-title">
+        <header class="panel-header">
+          <div>
+            <p class="eyebrow">Dr. Ortopedia 2.0</p>
+            <h1 id="panel-title">Evolucao do PS</h1>
+          </div>
+          <button class="copy-button" id="copyButton" type="button" aria-label="Copiar evolucao">
+            <span class="clipboard-icon" aria-hidden="true"></span>
+            <span id="copyLabel">Copiar</span>
+          </button>
+        </header>
+
+        <textarea id="clinicalText" spellcheck="false">EVOLUCAO DO PS
+
+QUEIXA PRINCIPAL:
+
+HDA:
+Paciente refere dor em  ha  dias, apos .
+
+EXAME FISICO:
+Bom estado geral, consciente e orientado.
+Pele integra, sem sinais flogisticos evidentes.
+Dor a palpacao em .
+Mobilidade preservada, limitada pela dor.
+Sem deficit neurovascular distal.
+
+EXAMES:
+Radiografias avaliadas sem sinais de fratura evidente no momento.
+
+HIPOTESE DIAGNOSTICA:
+
+CID:
+
+CONDUTA:
+Orientado repouso relativo, analgesia conforme prescricao, gelo local e retorno se piora da dor, edema, deformidade, febre ou alteracao neurovascular.
+Encaminhado para seguimento ambulatorial conforme necessidade clinica.</textarea>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">Texto copiado</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
