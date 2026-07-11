@@ -3,50 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contusão - Evolução do PS</title>
+    <title>Contusão - Botões de cópia</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app-shell">
-      <section class="copy-panel" aria-labelledby="panel-title">
-        <header class="panel-header">
-          <div>
-            <p class="eyebrow">Evoluções do PS</p>
-            <h1 id="panel-title">Contusão</h1>
-          </div>
-
-          <div class="copy-actions" aria-label="Opções de cópia">
-            <button class="copy-button primary" type="button" data-copy="all">
-              <span class="clipboard-icon" aria-hidden="true"></span>
-              <span>Copiar tudo</span>
-            </button>
-            <button class="copy-button" type="button" data-copy="initial">
-              <span class="clipboard-icon" aria-hidden="true"></span>
-              <span>Atendimento inicial</span>
-            </button>
-            <button class="copy-button" type="button" data-copy="reevaluation">
-              <span class="clipboard-icon" aria-hidden="true"></span>
-              <span>Reavaliação</span>
-            </button>
-          </div>
-        </header>
-
-        <div class="template-part">
-          <label for="initialText">Atendimento inicial</label>
-          <textarea id="initialText" spellcheck="false">QUEIXA PRINCIPAL/HISTÓRIA DA DOENÇA ATUAL: DOR NO LOCAL APÓS TRAUMA DIRETO. NEGA FEBRE E OUTROS SINTOMAS.
-
-EXAME FÍSICO: BOM ESTADO GERAL, AFEBRIL, DEAMBULANDO COM CARGA TOTAL. DOR À PALPAÇÃO LOCAL. EDEMA ++/4 E EQUIMOSE PRESENTES. AMPLITUDE DE MOVIMENTO PRESERVADA, PORÉM DOLOROSA À MOBILIZAÇÃO. SEM DÉFICITS NEUROLÓGICOS. EXAME NEUROVASCULAR DISTAL PRESERVADO.</textarea>
-        </div>
-
-        <div class="template-part">
-          <label for="reevaluationText">Reavaliação</label>
-          <textarea id="reevaluationText" spellcheck="false">RADIOGRAFIA: SEM EVIDÊNCIAS DE FRATURA. PRESENÇA DE SINAIS DEGENERATIVOS.
-
-HIPÓTESE DIAGNÓSTICA: CONTUSÃO. CID-10: T14.0.
-
-CONDUTA: ANALGESIA. ORIENTADO QUANTO AOS SINAIS DE ALERTA E À NECESSIDADE DE RETORNO IMEDIATO EM CASO DE PIORA DA DOR, EDEMA IMPORTANTE, FEBRE OU NOVOS SINTOMAS. MANTER SEGUIMENTO AMBULATORIAL.</textarea>
-        </div>
-      </section>
+    <main class="copy-actions" aria-label="Opções de cópia do template Contusão">
+      <button class="copy-button primary" type="button" data-copy="all">
+        <span class="clipboard-icon" aria-hidden="true"></span>
+        <span>Copiar tudo</span>
+      </button>
+      <button class="copy-button" type="button" data-copy="initial">
+        <span class="clipboard-icon" aria-hidden="true"></span>
+        <span>Atendimento inicial</span>
+      </button>
+      <button class="copy-button" type="button" data-copy="reevaluation">
+        <span class="clipboard-icon" aria-hidden="true"></span>
+        <span>Reavaliação</span>
+      </button>
     </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite">Texto copiado</div>

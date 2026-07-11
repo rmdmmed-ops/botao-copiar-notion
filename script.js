@@ -1,17 +1,23 @@
-const initialText = document.getElementById("initialText");
-const reevaluationText = document.getElementById("reevaluationText");
 const copyButtons = document.querySelectorAll("[data-copy]");
 const toast = document.getElementById("toast");
+
+const template = {
+  initial: `QUEIXA PRINCIPAL/HISTÓRIA DA DOENÇA ATUAL: DOR NO LOCAL APÓS TRAUMA DIRETO. NEGA FEBRE E OUTROS SINTOMAS.
+
+EXAME FÍSICO: BOM ESTADO GERAL, AFEBRIL, DEAMBULANDO COM CARGA TOTAL. DOR À PALPAÇÃO LOCAL. EDEMA ++/4 E EQUIMOSE PRESENTES. AMPLITUDE DE MOVIMENTO PRESERVADA, PORÉM DOLOROSA À MOBILIZAÇÃO. SEM DÉFICITS NEUROLÓGICOS. EXAME NEUROVASCULAR DISTAL PRESERVADO.`,
+  reevaluation: `RADIOGRAFIA: SEM EVIDÊNCIAS DE FRATURA. PRESENÇA DE SINAIS DEGENERATIVOS.
+
+HIPÓTESE DIAGNÓSTICA: CONTUSÃO. CID-10: T14.0.
+
+CONDUTA: ANALGESIA. ORIENTADO QUANTO AOS SINAIS DE ALERTA E À NECESSIDADE DE RETORNO IMEDIATO EM CASO DE PIORA DA DOR, EDEMA IMPORTANTE, FEBRE OU NOVOS SINTOMAS. MANTER SEGUIMENTO AMBULATORIAL.`,
+};
 
 let resetTimer;
 
 function getText(part) {
-  const initial = initialText.value.trim();
-  const reevaluation = reevaluationText.value.trim();
-
-  if (part === "initial") return initial;
-  if (part === "reevaluation") return reevaluation;
-  return `${initial}\n\n${reevaluation}`;
+  if (part === "initial") return template.initial;
+  if (part === "reevaluation") return template.reevaluation;
+  return `${template.initial}\n\n${template.reevaluation}`;
 }
 
 async function writeToClipboard(text) {
