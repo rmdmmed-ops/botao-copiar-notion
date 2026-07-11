@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Copiar Evolucao do PS</title>
+    <title>Contusão - Evolução do PS</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -11,44 +11,45 @@
       <section class="copy-panel" aria-labelledby="panel-title">
         <header class="panel-header">
           <div>
-            <p class="eyebrow">Dr. Ortopedia 2.0</p>
-            <h1 id="panel-title">Evolucao do PS</h1>
+            <p class="eyebrow">Evoluções do PS</p>
+            <h1 id="panel-title">Contusão</h1>
           </div>
-          <button class="copy-button" id="copyButton" type="button" aria-label="Copiar evolucao">
-            <span class="clipboard-icon" aria-hidden="true"></span>
-            <span id="copyLabel">Copiar</span>
-          </button>
+
+          <div class="copy-actions" aria-label="Opções de cópia">
+            <button class="copy-button primary" type="button" data-copy="all">
+              <span class="clipboard-icon" aria-hidden="true"></span>
+              <span>Copiar tudo</span>
+            </button>
+            <button class="copy-button" type="button" data-copy="initial">
+              <span class="clipboard-icon" aria-hidden="true"></span>
+              <span>Atendimento inicial</span>
+            </button>
+            <button class="copy-button" type="button" data-copy="reevaluation">
+              <span class="clipboard-icon" aria-hidden="true"></span>
+              <span>Reavaliação</span>
+            </button>
+          </div>
         </header>
 
-        <textarea id="clinicalText" spellcheck="false">EVOLUCAO DO PS
+        <div class="template-part">
+          <label for="initialText">Atendimento inicial</label>
+          <textarea id="initialText" spellcheck="false">QUEIXA PRINCIPAL/HISTÓRIA DA DOENÇA ATUAL: DOR NO LOCAL APÓS TRAUMA DIRETO. NEGA FEBRE E OUTROS SINTOMAS.
 
-QUEIXA PRINCIPAL:
+EXAME FÍSICO: BOM ESTADO GERAL, AFEBRIL, DEAMBULANDO COM CARGA TOTAL. DOR À PALPAÇÃO LOCAL. EDEMA ++/4 E EQUIMOSE PRESENTES. AMPLITUDE DE MOVIMENTO PRESERVADA, PORÉM DOLOROSA À MOBILIZAÇÃO. SEM DÉFICITS NEUROLÓGICOS. EXAME NEUROVASCULAR DISTAL PRESERVADO.</textarea>
+        </div>
 
-HDA:
-Paciente refere dor em  ha  dias, apos .
+        <div class="template-part">
+          <label for="reevaluationText">Reavaliação</label>
+          <textarea id="reevaluationText" spellcheck="false">RADIOGRAFIA: SEM EVIDÊNCIAS DE FRATURA. PRESENÇA DE SINAIS DEGENERATIVOS.
 
-EXAME FISICO:
-Bom estado geral, consciente e orientado.
-Pele integra, sem sinais flogisticos evidentes.
-Dor a palpacao em .
-Mobilidade preservada, limitada pela dor.
-Sem deficit neurovascular distal.
+HIPÓTESE DIAGNÓSTICA: CONTUSÃO. CID-10: T14.0.
 
-EXAMES:
-Radiografias avaliadas sem sinais de fratura evidente no momento.
-
-HIPOTESE DIAGNOSTICA:
-
-CID:
-
-CONDUTA:
-Orientado repouso relativo, analgesia conforme prescricao, gelo local e retorno se piora da dor, edema, deformidade, febre ou alteracao neurovascular.
-Encaminhado para seguimento ambulatorial conforme necessidade clinica.</textarea>
+CONDUTA: ANALGESIA. ORIENTADO QUANTO AOS SINAIS DE ALERTA E À NECESSIDADE DE RETORNO IMEDIATO EM CASO DE PIORA DA DOR, EDEMA IMPORTANTE, FEBRE OU NOVOS SINTOMAS. MANTER SEGUIMENTO AMBULATORIAL.</textarea>
+        </div>
       </section>
     </main>
 
     <div class="toast" id="toast" role="status" aria-live="polite">Texto copiado</div>
-
     <script src="script.js"></script>
   </body>
 </html>

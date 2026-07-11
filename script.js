@@ -1,36 +1,56 @@
-const copyButton = document.getElementById("copyButton");
-const copyLabel = document.getElementById("copyLabel");
-const clinicalText = document.getElementById("clinicalText");
+const initialText = document.getElementById("initialText");
+const reevaluationText = document.getElementById("reevaluationText");
+const copyButtons = document.querySelectorAll("[data-copy]");
 const toast = document.getElementById("toast");
 
 let resetTimer;
 
-async function copyClinicalText() {
-  const text = clinicalText.value.trimEnd();
+function getText(part) {
+  const initial = initialText.value.trim();
+  const reevaluation = reevaluationText.value.trim();
 
+  if (part === "initial") return initial;
+  if (part === "reevaluation") return reevaluation;
+  return `${initial}\n\n${reevaluation}`;
+}
+
+async function writeToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
   } catch {
-    clinicalText.focus();
-    clinicalText.select();
+    const helper = document.createElement("textarea");
+    helper.value = text;
+    helper.setAttribute("readonly", "");
+    helper.style.position = "fixed";
+    helper.style.opacity = "0";
+    document.body.appendChild(helper);
+    helper.select();
     document.execCommand("copy");
-    clinicalText.setSelectionRange(0, 0);
+    helper.remove();
   }
-
-  showCopiedState();
 }
 
-function showCopiedState() {
+function showCopiedState(button) {
   window.clearTimeout(resetTimer);
-  copyButton.classList.add("is-copied");
+  const label = button.querySelector("span:last-child");
+  const originalLabel = label.textContent;
+
+  copyButtons.forEach((item) => item.classList.remove("is-copied"));
+  button.classList.add("is-copied");
+  label.textContent = "Copiado";
+  toast.textContent = `${originalLabel} copiado`;
   toast.classList.add("is-visible");
-  copyLabel.textContent = "Copiado";
 
   resetTimer = window.setTimeout(() => {
-    copyButton.classList.remove("is-copied");
+    button.classList.remove("is-copied");
+    label.textContent = originalLabel;
     toast.classList.remove("is-visible");
-    copyLabel.textContent = "Copiar";
   }, 1600);
 }
 
-copyButton.addEventListener("click", copyClinicalText);
+copyButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    await writeToClipboard(getText(button.dataset.copy));
+    showCopiedState(button);
+  });
+});
